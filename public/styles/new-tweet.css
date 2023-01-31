@@ -43,4 +43,6 @@
 }
 
 
-/* .counter {} */
+.counter.number-neg {
+  color: red;
+}
