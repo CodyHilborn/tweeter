@@ -1,6 +1,9 @@
+///////////////////////////////////////////////////////////////////////
+//                    CHARACTER COUNT FUNCTIONALITY
+///////////////////////////////////////////////////////////////////////
+
 $(document).ready(function() {
 
-  // >>> Change value of char counter using length of input.
   const $tweetText = $('#tweet-text');
 
   $($tweetText).on('input', function() {
