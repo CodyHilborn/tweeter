@@ -47,7 +47,18 @@ $(document).ready(function() {
     event.preventDefault();
     const $formInput = $(this).serialize();
 
-    $.post('/tweets', $formInput);
+    // >>> FORM VALIDATION & POST REQUEST
+
+    const $tweetLength = $('#tweet-text').val().length;
+
+    if ($tweetLength <= 0) {
+      alert('Tweet field empty! Please type something out before you submit.');
+    } else if ($tweetLength > 140) {
+      alert("You're over the character limit! Please use less words.");
+    } else {
+      $.post('/tweets', $formInput);
+    }
+
   });
 
 
