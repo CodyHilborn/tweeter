@@ -7,6 +7,12 @@
 
 $(document).ready(function() {
 
+  const escape = function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // >>> CREATE INDIVIDUAL TWEET ELEMENT FROM DB
   const createTweetElement = function(tweetObj) {
     const $tweetElement = `
@@ -18,7 +24,7 @@ $(document).ready(function() {
           </span>
           <span class="user-handle">${tweetObj.user.handle}</span>
         </header>
-        <p class="tweet-content">${tweetObj.content.text}</p>
+        <p class="tweet-content">${escape(tweetObj.content.text)}</p>
         <footer>
           <span>${timeago.format(tweetObj.created_at)}</span>
           <span>
