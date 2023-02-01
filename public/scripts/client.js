@@ -61,7 +61,7 @@ $(document).ready(function() {
   const renderTweets = function(tweetArr) {
     for (const tweetObj of tweetArr) {
       let result = createTweetElement(tweetObj);
-      $('.tweet-container').append(result);
+      $('#tweet-container').append(result);
     }
   };
 
