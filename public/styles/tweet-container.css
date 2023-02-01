@@ -16,6 +16,11 @@
   flex-direction: column;
 }
 
+.article-tweet:hover {
+  box-shadow: 7px 7px 5px grey;
+  transition: 0.3s ease-in-out;
+}
+
 .article-tweet header {
   padding-bottom: 1em;
   padding-left: 0.5em;
@@ -47,6 +52,13 @@
   justify-content: space-between;
 }
 
-.tweet-action-icons {
+footer span i.fa-solid {
+  padding-right: 0.5em;
   color: #4056a1;
+}
+
+footer span i.fa-solid:hover {
+  color: #D5A037;
+  transition: 0.3s;
+  cursor: pointer;
 }
