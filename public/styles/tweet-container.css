@@ -1,10 +1,11 @@
 .tweet-container {
   width: 100%;
-  border: 2px solid red;
 }
 
 .article-tweet {
   width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
   border: 5px solid #545149;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -44,4 +45,8 @@
 
   display: flex;
   justify-content: space-between;
+}
+
+.tweet-action-icons {
+  color: #4056a1;
 }
