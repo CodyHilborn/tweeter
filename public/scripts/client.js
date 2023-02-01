@@ -35,7 +35,7 @@ $(document).ready(function() {
   const renderTweets = function(tweetArr) {
     for (const tweetObj of tweetArr) {
       let result = createTweetElement(tweetObj);
-      $('#tweet-container').append(result);
+      $('#tweet-container').prepend(result);
     }
   };
 
@@ -56,7 +56,9 @@ $(document).ready(function() {
     } else if ($tweetLength > 140) {
       alert("You're over the character limit! Please use less words.");
     } else {
-      $.post('/tweets', $formInput);
+      $.post('/tweets', $formInput, () => {
+        loadTweets();
+      });
     }
 
   });
@@ -65,6 +67,7 @@ $(document).ready(function() {
   // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE
   const loadTweets = function() {
     $.get('http://localhost:8080/tweets', (data) => {
+      $('#tweet-container').empty();
       renderTweets(data);
     });
   };
