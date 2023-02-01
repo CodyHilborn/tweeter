@@ -29,7 +29,16 @@
   justify-content: space-between;
 }
 
-.article-tweet p {
+.user-info {
+  display: flex;
+}
+
+.user-info p {
+  padding-left: 0.5em;
+}
+
+
+.article-tweet p.tweet-content {
   font-weight: bold;
   padding-left: 1em;
   padding-right: 1em;
