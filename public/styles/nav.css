@@ -25,10 +25,17 @@
 }
 
 .navbar-write-new-tweet {
+  color: #FFFFFF;
+  text-decoration: none;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.navbar-write-new-tweet:hover {
+  text-decoration: underline;
 }
 
 .fa-solid.fa-angles-down {

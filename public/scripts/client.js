@@ -64,7 +64,9 @@ $(document).ready(function() {
     const $formInput = $(this).serialize();
 
 
+
     // >>> FORM VALIDATION <<<
+
     // Determine length of form input.
     const $tweetLength = $('#tweet-text').val().length;
     // Access error class for new tweet.
@@ -104,7 +106,6 @@ $(document).ready(function() {
       });
     }
   });
-
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
