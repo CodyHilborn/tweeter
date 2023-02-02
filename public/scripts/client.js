@@ -7,11 +7,20 @@
 
 $(document).ready(function() {
 
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  //               ESCAPE FUNCTION FOR XSS PROTECTION
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
   const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  //               TWEET ELEMENT CREATOR & RENDER FUNCTIONS
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
   // >>> CREATE INDIVIDUAL TWEET ELEMENT FROM DB
   const createTweetElement = function(tweetObj) {
@@ -45,6 +54,9 @@ $(document).ready(function() {
     }
   };
 
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  //               NEW TWEET EVENT LISTENER & FORM VALIDATION
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
   // >>> EVENT LISTENER FOR NEW TWEET FORM SUBMISSION
   $('.new-tweet-form').submit(function(event) {
@@ -70,6 +82,7 @@ $(document).ready(function() {
 
     } else {
       $.post('/tweets', $formInput, () => {
+
         $('#tweet-text').val('');
         $(".counter").val("140");
         $newTweetError.slideUp('fast');
@@ -79,6 +92,7 @@ $(document).ready(function() {
 
       }).fail(function() {
         const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4>Something went wrong in the server.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
+
         $newTweetError.html($errorMsg);
       });
     }
@@ -86,7 +100,9 @@ $(document).ready(function() {
   });
 
 
-
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  //               LOAD TWEETS FUNCTION W/ GET REQUEST TO DB
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
   // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE
   const loadTweets = function() {
@@ -98,5 +114,7 @@ $(document).ready(function() {
 
   loadTweets();
 
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
 });
 
