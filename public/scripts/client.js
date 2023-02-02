@@ -88,7 +88,7 @@ $(document).ready(function() {
 
   });
 
-  
+
 
 
   // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE
