@@ -22,7 +22,7 @@ $(document).ready(function() {
   //               TWEET ELEMENT CREATOR & RENDER FUNCTIONS
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  // >>> CREATE INDIVIDUAL TWEET ELEMENT FROM DB
+  // >>> CREATE INDIVIDUAL TWEET ELEMENT FROM DB <<<
   const createTweetElement = function(tweetObj) {
     const $tweetElement = `
       <article class="article-tweet">
@@ -58,28 +58,34 @@ $(document).ready(function() {
   //               NEW TWEET EVENT LISTENER & FORM VALIDATION
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  // >>> EVENT LISTENER FOR NEW TWEET FORM SUBMISSION
+  // >>> EVENT LISTENER FOR NEW TWEET FORM SUBMISSION <<<
   $('.new-tweet-form').submit(function(event) {
     event.preventDefault();
     const $formInput = $(this).serialize();
 
-    // >>> FORM VALIDATION & POST REQUEST
 
+    // >>> FORM VALIDATION <<<
+    // Determine length of form input.
     const $tweetLength = $('#tweet-text').val().length;
+    // Access error class for new tweet.
     const $newTweetError = $('.new-tweet-error');
 
+    // Hide error message.
     $newTweetError.slideUp('fast');
 
+    // If text field is empty, render error message and slide down.
     if ($tweetLength <= 0) {
       const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> Tweet field empty! Please type something out before you submit.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
 
       $newTweetError.html($errorMsg).slideDown('fast');
 
+      // If input is over char count, render error message and slide down.
     } else if ($tweetLength > 140) {
       const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> You are over the character limit! Please use less words.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
 
       $newTweetError.html($errorMsg).slideDown('fast');
 
+      // If all checks are passed: clear form, reset counter, slide up error message and remove innerHTML.
     } else {
       $.post('/tweets', $formInput, () => {
 
@@ -90,21 +96,22 @@ $(document).ready(function() {
 
         loadTweets();
 
+        // If there's a server issue on submit, render relevant error message.
       }).fail(function() {
         const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4>Something went wrong in the server.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
 
-        $newTweetError.html($errorMsg);
+        $newTweetError.html($errorMsg).slideDown('fast');
       });
     }
-
   });
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   //               LOAD TWEETS FUNCTION W/ GET REQUEST TO DB
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE
+  // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE <<<
   const loadTweets = function() {
     $.get('http://localhost:8080/tweets', (data) => {
       $('#tweet-container').empty();
@@ -117,4 +124,3 @@ $(document).ready(function() {
   ///////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////
 });
-
