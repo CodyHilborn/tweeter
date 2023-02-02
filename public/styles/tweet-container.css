@@ -6,7 +6,7 @@
   width: 100%;
   margin-top: 2em;
   margin-bottom: 2em;
-  border: 5px solid #545149;
+  border: 0.2em solid #545149;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: 0.5em;
@@ -46,16 +46,16 @@
 
 .user-handle {
   font-weight: bold;
-  color: lightgrey;
+  color: #bab7b7;
 }
 
 .article-tweet footer {
-  font-size: 12pt;
+  font-size: 0.6em;
   font-weight: bold;
   padding-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
-  border-top: 4px solid #545149;
+  border-top: 0.25em solid #545149;
 
   display: flex;
   justify-content: space-between;
