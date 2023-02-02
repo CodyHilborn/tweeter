@@ -49,25 +49,46 @@ $(document).ready(function() {
   // >>> EVENT LISTENER FOR NEW TWEET FORM SUBMISSION
   const $newTweetForm = $('.new-tweet-form');
 
-  $($newTweetForm).submit(function(event) {
+  $newTweetForm.submit(function(event) {
     event.preventDefault();
     const $formInput = $(this).serialize();
+
+
 
     // >>> FORM VALIDATION & POST REQUEST
 
     const $tweetLength = $('#tweet-text').val().length;
 
+    $('.new-tweet-error').slideUp('fast');
+
     if ($tweetLength <= 0) {
-      alert('Tweet field empty! Please type something out before you submit.');
+      const $error = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> Tweet field empty! Please type something out before you submit.</h4>');
+
+      $('.new-tweet-error').html($error).slideDown('fast');
+
     } else if ($tweetLength > 140) {
-      alert("You're over the character limit! Please use less words.");
+      const $error = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> You are over the character limit! Please use less words.</h4>');
+
+      $('.new-tweet-error').html($error).slideDown('fast');
+
     } else {
       $.post('/tweets', $formInput, () => {
+        $('#tweet-text').val('');
+        $(".counter").val("140");
+        $('.new-tweet-error').slideUp('fast');
+        $('.new-tweet-error').html('');
+
         loadTweets();
+
+      }).fail(function() {
+        const $error = $('<i class="fa-solid fa-triangle-exclamation"></i><h4>Something went wrong in the server.</h4>');
+        $('.new-tweet-error').html($error);
       });
     }
 
   });
+
+  
 
 
   // >>> GET REQUEST TO LOAD TWEETS FROM DATABASE
