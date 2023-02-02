@@ -17,8 +17,8 @@
 }
 
 .article-tweet:hover {
-  box-shadow: 7px 7px 5px grey;
-  transition: 0.3s ease-in-out;
+  box-shadow: 8px 8px 5px grey;
+  transition: 0.2s ease-in-out;
 }
 
 .article-tweet header {

@@ -41,8 +41,8 @@
 }
 
 #tweet-submit-button:hover {
-  background-color: green;
-  transition: 0.3s;
+  background-color: rgb(25, 188, 25);
+  transition: 0.2s;
   cursor: pointer;
 }
 
