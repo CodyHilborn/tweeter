@@ -47,3 +47,12 @@
 .counter.number-neg {
   color: red;
 }
+
+.new-tweet-error {
+  color: red;
+
+  display: flex;
+  align-items: center;
+
+  
+}
