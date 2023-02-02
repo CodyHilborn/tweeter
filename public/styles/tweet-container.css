@@ -11,6 +11,7 @@
   padding-bottom: 1em;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  overflow-wrap: anywhere;
 
   display: flex;
   flex-direction: column;
