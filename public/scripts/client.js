@@ -4,8 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
+// >>> DOCUMENT READY FUNCTION <<<
 $(document).ready(function() {
+
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   //               ESCAPE FUNCTION FOR XSS PROTECTION
@@ -72,10 +73,10 @@ $(document).ready(function() {
 
     // Determine length of form input.
     const $tweetLength = $('#tweet-text').val().length;
-    // Access error class for new tweet.
+    // Access class for new tweet error.
     const $newTweetError = $('.new-tweet-error');
 
-    // Hide error message.
+    // Hide error message initially.
     $newTweetError.slideUp('fast');
 
     // If text field is empty, render error message and slide down.
@@ -119,6 +120,7 @@ $(document).ready(function() {
         $newTweetError.html($errorMsg).slideDown('fast');
       });
     }
+
   });
 
 
