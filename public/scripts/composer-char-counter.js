@@ -4,9 +4,7 @@
 
 $(document).ready(function() {
 
-  const $tweetText = $('#tweet-text');
-
-  $($tweetText).on('input', function() {
+  $('#tweet-text').on('input', function() {
     const $counter = ($(this).siblings().children('.counter'));
     $counter.val(140 - $(this).val().length);
 
