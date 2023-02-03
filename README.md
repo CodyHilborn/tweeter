@@ -9,9 +9,9 @@ Want to post your deepest, darkest thoughts and have them only be seen by you?
 Install **Tweeter** and *fire away*!
 
 ## Final Product
-!['Desktop View']()
-!['Tablet View'](#)
-!['Tweeter Timeline'](#)
+!['Desktop View'](https://raw.githubusercontent.com/CodyHilborn/tweeter/2e9151fc9f5923ffad4fd265615e320ebc2406da/docs/desktop-view.png)
+!['Tablet View'](https://raw.githubusercontent.com/CodyHilborn/tweeter/2e9151fc9f5923ffad4fd265615e320ebc2406da/docs/tablet-view.png)
+!['Tweeter Timeline'](https://raw.githubusercontent.com/CodyHilborn/tweeter/2e9151fc9f5923ffad4fd265615e320ebc2406da/docs/tweet-container.png)
 
 ### Dependencies
 
