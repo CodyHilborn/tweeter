@@ -42,9 +42,12 @@ $(document).ready(function() {
             <i class="fa-solid fa-heart"></i>
           </span>
         </footer>
-      </article>`;
+      </article>
+      `;
+
     return $tweetElement;
   };
+
 
   // >>> LOOP THROUGH DATABASE, APPEND EACH ELEMENT TO TWEET CONTAINER
   const renderTweets = function(tweetArr) {
@@ -54,6 +57,7 @@ $(document).ready(function() {
     }
   };
 
+
   ///////////////////////////////////////////////////////////////////////////////////////////
   //               NEW TWEET EVENT LISTENER & FORM VALIDATION
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +66,6 @@ $(document).ready(function() {
   $('.new-tweet-form').submit(function(event) {
     event.preventDefault();
     const $formInput = $(this).serialize();
-
 
 
     // >>> FORM VALIDATION <<<
@@ -77,30 +80,41 @@ $(document).ready(function() {
 
     // If text field is empty, render error message and slide down.
     if ($tweetLength <= 0) {
-      const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> Tweet field empty! Please type something out before you submit.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
+      const $errorMsg = $(`
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h4>Tweet field empty! Please type something before you submit.</h4>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        `);
 
       $newTweetError.html($errorMsg).slideDown('fast');
 
       // If input is over char count, render error message and slide down.
     } else if ($tweetLength > 140) {
-      const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4> You are over the character limit! Please use less words.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
+      const $errorMsg = $(`
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h4>You are over the character limit! Please use less words.</h4>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        `);
 
       $newTweetError.html($errorMsg).slideDown('fast');
 
-      // If all checks are passed: clear form, reset counter, slide up error message and remove innerHTML.
+      // If all checks are passed: clear form, reset counter, & hide error message.
     } else {
       $.post('/tweets', $formInput, () => {
 
         $('#tweet-text').val('');
         $(".counter").val("140");
         $newTweetError.slideUp('fast');
-        $newTweetError.html('');
 
         loadTweets();
 
         // If there's a server issue on submit, render relevant error message.
       }).fail(function() {
-        const $errorMsg = $('<i class="fa-solid fa-triangle-exclamation"></i><h4>Something went wrong in the server.</h4><i class="fa-solid fa-triangle-exclamation"></i>');
+        const $errorMsg = $(`
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <h4>Something went wrong in the server.</h4>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          `);
 
         $newTweetError.html($errorMsg).slideDown('fast');
       });
